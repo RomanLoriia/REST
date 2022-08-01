@@ -25,7 +25,6 @@ function setAdminTable(result){
             $('<td>').text(user.username),
             $('<td>').text(user.surname),
             $('<td>').text(user.age),
-            $('<td>').text(user.email),
             $('<td>').text(role),
             $('<td>').append($('<button>').text("Edit").attr({
                 "type": "button",

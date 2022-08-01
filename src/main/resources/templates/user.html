@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org" >
+<html xmlns:th="https://www.thymeleaf.org" xmlns:height="http://www.w3.org/1999/xhtml"
+      xmlns:width="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>User</title>
@@ -13,10 +14,10 @@
 <nav class="navbar navbar-dark bg-dark">
     <div th:switch="${role}">
         <div th:case="'ADMIN'">
-            <a class="navbar-brand text-white" th:utext="'<b>'+${user.email}+'</b> with roles: ADMIN, USER'"></a>
+            <a class="navbar-brand text-white" th:utext="'<b>'+${user.username}+'</b> with roles: ADMIN, USER'"></a>
         </div>
         <div th:case="'USER'">
-            <a class="navbar-brand text-white" th:utext="'<b>'+${user.email}+'</b> with roles: USER'"></a>
+            <a class="navbar-brand text-white" th:utext="'<b>'+${user.username}+'</b> with roles: USER'"></a>
         </div>
     </div>
     <form class="form-inline" th:action="@{/logout}" method="get">
@@ -25,18 +26,20 @@
 </nav>
 
     <!--  кнопки слева ADMIN, USER (profile)  -->
-
+<div class="row">
     <div class="row">
         <div class="col-3">
-            <div class="nav flex-column nav-pills"  role="tablist" aria-orientation="vertical">
 
-                <a class="nav-link " th:href="@{/admin}"  role="tab"   th:utext="Admin"></a>
-                <a class="nav-link active"   th:href="@{/user}" role="tab" th:utext="User"></a>
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+                <a class="nav-link " th:href="@{/admin}"  role="tab"   th:utext="Admin" ></a>
+                <a class="nav-link active"   th:href="@{/user}" role="tab" th:utext="User" ></a>
 
 
             </div>
         </div>
     </div>
+</div>
     
 
 <!--  табл с инфой и пользователе  -->
@@ -56,7 +59,6 @@
                             <th bgcolor="white">USERNAME</th>
                             <th bgcolor="white">SURNAME</th>
                             <th bgcolor="white">AGE</th>
-                            <th bgcolor="white">EMAIL</th>
                             <th bgcolor="white">ROLE</th>
                         </tr>
                     </thread>

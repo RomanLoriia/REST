@@ -28,7 +28,8 @@ public class UserDetails implements UserDetailsService {
     @Transactional
     public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
-        mapRolesToAuthorities(user.getRoles());
+        user.getAuthorities().stream().map(role -> new SimpleGrantedAuthority(role.getAuthority())).collect(Collectors.toList());
+
         if (user == null) {
             throw new UsernameNotFoundException(String.format("Пользователя с именем '%s' не найдено", username));
         }
@@ -36,7 +37,6 @@ public class UserDetails implements UserDetailsService {
     }
 
     //берет пачку ролей и делает такую же пачку для авторитиес
-    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
-        return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
-    }
+
+
 }

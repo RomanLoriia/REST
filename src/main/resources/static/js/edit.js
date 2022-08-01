@@ -8,7 +8,6 @@ $(document).on('click','.edit',function () {
     $('#usernameEditUser').val(user.username);
     $('#surnameEditUser').val(user.surname);
     $('#ageEditUser').val(user.age);
-    $('#emailEditUser').val(user.email);
     $('#passEditUser').val(user.password);
     $('#roleEditUser').val(role)
 })

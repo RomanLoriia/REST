@@ -15,7 +15,6 @@ async function getUser() {
                     <td>${user.username}</td>
                     <td>${user.surname}</td>
                     <td>${user.age}</td>
-                    <td>${user.email}</td>
                     <td>${role}</td>
                 </tr>
             `;

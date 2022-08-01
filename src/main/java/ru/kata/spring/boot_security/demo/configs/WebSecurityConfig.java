@@ -17,6 +17,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final SuccessUserHandler successUserHandler;
     private UserDetails userDetails;
 
+
     @Autowired
     public WebSecurityConfig(SuccessUserHandler successUserHandler, UserDetails userDetails) {
         this.successUserHandler = successUserHandler;
@@ -45,6 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetails).passwordEncoder(NoOpPasswordEncoder.getInstance());
+
     }
 
     @Bean

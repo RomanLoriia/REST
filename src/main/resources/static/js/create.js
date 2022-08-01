@@ -4,7 +4,6 @@ $(document).on("click", "#btnNewUser", function () {
     $('#nameNewUser').val('');
     $('#surnameNewUser').val('');
     $('#ageNewUser').val('');
-    $('#emailNewUser').val('');
     $('#passNewUser').val('');
     $('#rolesNewUser').val('');
 

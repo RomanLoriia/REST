@@ -16,7 +16,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
+    @Column(unique = true)
     private String username;
 
     @Column
@@ -28,8 +28,7 @@ public class User implements UserDetails {
     @Column
     private String password;
 
-    @Column(unique = true)
-    private String email;
+
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
@@ -68,7 +67,6 @@ public class User implements UserDetails {
                 ", username = " + username +
                 ", surname = " + surname +
                 ", age = " + age +
-                ", email = " + email +
                 ", roles = " + roles;
     }
 }
